@@ -23,4 +23,10 @@ public class PersonController : ControllerBase
             ))
             .ToArray();
     }
+
+    [HttpPost(Name = "CreatePeople")]
+    public ActionResult<Person> CreatePerson(Person person)
+    {
+        return Created(new Person(BirthDate: DateTime.Now, 36, person.Summary));
+    }
 }
